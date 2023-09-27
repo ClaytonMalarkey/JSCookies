@@ -1,7 +1,17 @@
 function buttonClickedByUser () {
-    console.log("button clicked");
-    Cookies.set(`button_clicked`, `yes`);
+    Cookies.set(`button_clicked`, 'true');
 }
 
 let buttonClicked = document.getElementById("clickedButton");
 buttonClicked.addEventListener(`click`, buttonClickedByUser);
+
+const saveResult = Cookies.get("button_clicked");
+if (saveResult === undefined) {
+    // You create the h1 because we have not clicked the button
+    buttonClicked.insertAdjacentHTML(`afterend`, `<h1>button not clicked</h1>`);
+}else {
+    buttonClicked.insertAdjacentHTML('afterend', '<h1>button clicked creating cookie</h1>');
+}
+
+
+console.log(saveResult);
