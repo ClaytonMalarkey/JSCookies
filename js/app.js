@@ -5,12 +5,19 @@ function buttonClickedByUser () {
 let buttonClicked = document.getElementById("clickedButton");
 buttonClicked.addEventListener(`click`, buttonClickedByUser);
 
+function changedCookieFunction () {
+    Cookies.set('button_clicked', 'false');
+}
+
+let changedCookie = document.getElementById("changed");
+changedCookie.addEventListener(`click`, changedCookieFunction)
+
 function deleteCookiebyclick () {
     Cookies.remove('button_clicked');
 }
 
 let deleteCookie = document.getElementById("deleteCookiebutton");
-deleteCookiebutton.addEventListener(`click`, deleteCookiebyclick)
+deleteCookie.addEventListener(`click`, deleteCookiebyclick)
 
 const saveResult = Cookies.get("button_clicked");
 if (saveResult === undefined) {
