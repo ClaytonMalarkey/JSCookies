@@ -5,6 +5,13 @@ function buttonClickedByUser () {
 let buttonClicked = document.getElementById("clickedButton");
 buttonClicked.addEventListener(`click`, buttonClickedByUser);
 
+function deleteCookiebyclick () {
+    Cookies.remove('button_clicked');
+}
+
+let deleteCookie = document.getElementById("deleteCookiebutton");
+deleteCookiebutton.addEventListener(`click`, deleteCookiebyclick)
+
 const saveResult = Cookies.get("button_clicked");
 if (saveResult === undefined) {
     // You create the h1 because we have not clicked the button
